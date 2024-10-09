@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "config": {"view": {"stroke": ""}},
-  "width": 700,
-  "height": 60,
+  "width": 1000,
+  "height": 30,
   "title": {
     "text": "Major Disasters in Australia by Death Toll",
     "fontSize": 20,

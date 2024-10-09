@@ -23,7 +23,7 @@
       "field": "Occurrences",
       "type": "quantitative",
       "title": "Number of Occurrences",
-      "scale": {"rangeMin": 50, "rangeMax": 6000},
+      "scale": {"rangeMin": 50, "rangeMax": 3000},
       "legend": {
         "title": "Occurrences",
         "titleFontSize": 14,

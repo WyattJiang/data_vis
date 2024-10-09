@@ -2,35 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Natural Disasters Visualizations</title>
+  <title>From Past to Now: Australia Disasters</title>
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
   <style>
     .chart-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
+      gap: 40px; /* Add space between each chart-paragraph pair */
+    }
+    .chart-paragraph {
+      display: flex;
+      flex-direction: row; /* Align chart and paragraph side by side */
+      gap: 20px; /* Add space between chart and paragraph */
     }
     .chart {
-      width: 45%; /* Adjust width as needed */
+      width: 70%; /* Adjust width as needed */
+    }
+    .paragraph {
+      width: 30%; /* Adjust width as needed */
+      font-family: 'Times New Roman', Times, serif; /* Set font to Times New Roman */
+      font-size: 16px; /* Set font size for paragraphs */
+      text-align: justify; /* Optional: Justify text */
+      margin: 0; /* Remove default margin */
+    }
+    h1 {
+      font-family: 'Impact', sans-serif; /* Set font to Impact */
+      font-size: 38px; /* Set font size */
+      text-align: center; /* Optional: Center align the title */
     }
   </style>
 </head>
 <body>
-  <h1>Natural Disasters Visualizations</h1>
+  <h1>From Past to Now: Australia Disasters</h1>
   <div class="chart-container">
-    <div id="chart1" class="chart"></div>
-    <div id="chart2" class="chart"></div>
-    <div id="chart3" class="chart"></div>
-    <div id="chart4" class="chart"></div>
+    <div class="chart-paragraph">
+      <div id="chart1" class="chart"></div>
+      <p class="paragraph">asdasdasdasdasdasdasdasda asdasdasdasdasdasdasd asdasdasdasdasdasd</p>
+    </div>
+    <div class="chart-paragraph">
+      <div id="chart2" class="chart"></div>
+      <p class="paragraph">asdasdasdasdasdasdasdasda asdasdasdasdasdasdasd asdasdasdasdasdasd</p>
+    </div>
+    <div class="chart-paragraph">
+      <div id="chart3" class="chart"></div>
+      <p class="paragraph">asdasdasdasdasdasdasdasda asdasdasdasdasdasdasd asdasdasdasdasdasd</p>
+    </div>
+    <div class="chart-paragraph">
+      <div id="chart4" class="chart"></div>
+      <p class="paragraph">asdasdasdasdasdasdasdasda asdasdasdasdasdasdasd asdasdasdasdasdasd</p>
+    </div>
   </div>
 
   <script>
     // Paths to your JSON files
     const chartSpecs = [
-      'bubble_plots.json',       // chart1
-      'global_disaasters_charts.json', // chart2
+      'global_disaasters_charts.json', // chart1
+      'bubble_plots.json',       // chart2
       'interactive_charts.json', // chart3
       'isotype_charts.json'      // chart4
     ];

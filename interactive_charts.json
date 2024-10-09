@@ -222,8 +222,8 @@
           "type": "quantitative"
         }
       },
-      "width": 600,
-      "height": 300,
+      "width": 800,
+      "height": 200,
       "mark": "point",
       "params": [
         {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
