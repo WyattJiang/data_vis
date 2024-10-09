@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/WyattJiang/data_vis/refs/heads/main/GROUPED_YEAR_DISASTERS.CSV",
+    "format": {"type": "csv"}
+  },
+  "width": 1000,
+  "height": 200,
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "temporal",
+      "axis": {"title": "Year", "grid": false}
+    },
+    "y": {"value": 100},
+    "size": {
+      "field": "Occurrences",
+      "type": "quantitative",
+      "title": "Number of Occurrences",
+      "scale": {"rangeMin": 50, "rangeMax": 6000},
+      "legend": {
+        "title": "Occurrences",
+        "titleFontSize": 14,
+        "labelFontSize": 12,
+        "symbolSize": 200
+      }
+    },
+    "color": {
+      "field": "Occurrences",
+      "type": "quantitative",
+      "legend": {"title": "", "titleFontSize": 14, "labelFontSize": 12}
+    }
+  },
+  "config": {}
+}

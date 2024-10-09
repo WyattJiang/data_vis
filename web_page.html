@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Natural Disasters Visualizations</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .chart {
+      width: 45%; /* Adjust width as needed */
+    }
+  </style>
+</head>
+<body>
+  <h1>Natural Disasters Visualizations</h1>
+  <div class="chart-container">
+    <div id="chart1" class="chart"></div>
+    <div id="chart2" class="chart"></div>
+    <div id="chart3" class="chart"></div>
+    <div id="chart4" class="chart"></div>
+  </div>
+
+  <script>
+    // Paths to your JSON files
+    const chartSpecs = [
+      'bubble_plots.json',       // chart1
+      'global_disaasters_charts.json', // chart2
+      'interactive_charts.json', // chart3
+      'isotype_charts.json'      // chart4
+    ];
+
+    // Embedding each chart
+    chartSpecs.forEach((spec, index) => {
+      vegaEmbed(`#chart${index + 1}`, spec).catch(console.error);
+    });
+  </script>
+</body>
+</html>

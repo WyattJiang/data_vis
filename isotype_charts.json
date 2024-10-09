@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {"view": {"stroke": ""}},
+  "width": 700,
+  "height": 60,
+  "title": {
+    "text": "Major Disasters in Australia by Death Toll",
+    "fontSize": 20,
+    "anchor": "start",
+    "color": "#333"
+  },
+  "data": {
+    "values": [
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "2020-2023 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1918-1920 pandemic", "animal": "human"},
+      {"states": "1875-1876 pandemic", "animal": "human"},
+      {"states": "1875-1876 pandemic", "animal": "human"},
+      {"states": "1875-1876 pandemic", "animal": "human"},
+      {"states": "1946 pandemic", "animal": "human"},
+      {"states": "1951 volcanic eruption", "animal": "sheep"},
+      {"states": "1951 volcanic eruption", "animal": "sheep"},
+      {"states": "1951 volcanic eruption", "animal": "sheep"},
+      {"states": "2019 bushfires", "animal": "cattle"}
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "{'cattle': '🔥', 'human': '👤', 'sheep': '🌋'}[datum.animal]",
+      "as": "emoji"
+    },
+    {"window": [{"op": "rank", "as": "rank"}], "groupby": ["states", "animal"]}
+  ],
+  "mark": {
+    "type": "text",
+    "baseline": "middle",
+    "align": "center",
+    "fontSize": 16
+  },
+  "encoding": {
+    "x": {"field": "rank", "type": "ordinal", "axis": null, "spacing": 10},
+    "y": {"field": "animal", "type": "nominal", "axis": null, "sort": null},
+    "row": {
+      "field": "states",
+      "header": {
+        "title": "",
+        "labelFontSize": 14,
+        "labelFontWeight": "bold",
+        "labelColor": "#555",
+        "labelAngle": 0,
+        "labelPadding": 8,
+        "labelAlign": "left"
+      },
+      "spacing": 20
+    },
+    "text": {"field": "emoji", "type": "nominal"},
+    "size": {"value": 70}
+  }
+}
