@@ -1,4 +1,4 @@
-Year,Disaster_Type,Total_Damages_US_DOLLAR
+Year,Type,Damages
 1970,Storm,72475.0
 1971,Flood,20000.0
 1971,Storm,119219.0
