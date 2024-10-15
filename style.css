@@ -63,3 +63,14 @@ section img
 {
     z-index: 2;
 }
+.storm {
+  color: blue;
+}
+
+.flood {
+  color: lightblue;
+}
+
+.wildfire {
+  color: orange;
+}
