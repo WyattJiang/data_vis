@@ -1,5 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Disaster Occurrences Over Years in Australia",
+    "fontSize": 20,
+    "anchor": "start",
+    "color": "black"
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/WyattJiang/data_vis/refs/heads/main/GROUPED_YEAR_DISASTERS.CSV",
     "format": {"type": "csv"}
