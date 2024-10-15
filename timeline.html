@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>From Past to Now: Australia Disasters</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <style>
+    /* Full-page background image */
+    body {
+      background-image: url('bg.jpg'); /* Make sure the image is in the same directory as your HTML file */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white; /* Ensure text is visible on dark background */
+    }
+
+    .chart-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px; /* Add space between each chart-paragraph pair */
+      align-items: center; /* Center align all chart-paragraph pairs */
+    }
+
+    .chart-paragraph {
+      display: flex;
+      flex-direction: column; /* Align chart and paragraph vertically */
+      align-items: center; /* Center the chart and paragraph horizontally */
+      gap: 20px; /* Add space between chart and paragraph */
+      background-color: rgba(91, 95, 123, 0.527); /* Semi-transparent background color for readability */
+      padding: 20px; /* Add padding around content */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+      width: 80%; /* Adjust width as needed */
+    }
+
+    .chart {
+      width: auto; /* Set chart width to auto */
+      max-width: 100%; /* Ensure the chart does not exceed card width */
+      display: flex;
+      justify-content: center; /* Center the chart */
+    }
+
+    .paragraph {
+      width: 100%; /* Set paragraph width to match card width */
+      font-family: 'Times New Roman', Times, serif; /* Set font to Times New Roman */
+      font-size: 18px; /* Increased font size for paragraphs */
+      color: white; /* White text color */
+      text-align: center; /* Center align text */
+      margin: 0; /* Remove default margin */
+    }
+
+    h1 {
+      font-family: 'Impact', sans-serif; /* Set font to Impact */
+      font-size: 38px; /* Set font size */
+      text-align: center; /* Center align the title */
+      margin-bottom: 40px;
+      color: white; /* White text color */
+    }
+
+    .footer {
+      padding: 95px 0;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #999;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <img src="bg.jpg" id="bg">
+    <img src="moon.png" id="moon">
+    <img src="mountain.png" id="mountain">
+    <img src="road.png" id="road">
+    <h2 id="text">Australia Disasters</h2>
+  </section>
+
+  <h1>From Past to Now: Australia Disasters</h1>
+  <div class="chart-container">
+    <div class="chart-paragraph">
+      <div id="chart1" class="chart"></div>
+      <p class="paragraph">Compared to other countries, disaster frequencies in Australia are relatively high.</p>
+    </div>
+    <div class="chart-paragraph">
+      <div id="chart2" class="chart"></div>
+      <p class="paragraph">(data can be filtered by selecting the range on the dot charts describing damage by each disaster over year)</p>
+      <p class="paragraph">Data highlights major occurrences over time.</p>
+    </div>
+    <div class="chart-paragraph">
+      <div id="chart3" class="chart"></div>
+      <p class="paragraph">Overall the storm occurs most frequently, as well as the flood and wildfire </p>
+    </div>
+    <div class="chart-paragraph">
+        <p class="paragraph">👤 : 1,000 people killed by a pandemic.</p>
+        <p class="paragraph">🔥 : 1,000 people killed by bushfire.</p>
+        <p class="paragraph">🌋 : 1,000 people killed by volcanic eruption.</p>
+      <div id="chart4" class="chart"></div>
+        <p class="paragraph">Pandemic Killed the most people compare to other disasters</p>
+        <p class="paragraph">Eventhough Natural Disasters happened so often but it does not take too many people</p>
+
+    </div>
+  </div>
+
+  <div class="footer"><a></a></div>
+  
+  <script>
+    (function ($) {
+      $.fn.timeline = function () {
+        var selectors = {
+          id: $(this),
+          item: $(this).find(".item"),
+          activeClass: "item--active",
+          img: ".img"
+        };
+        selectors.item.eq(0).addClass(selectors.activeClass);
+        selectors.id.css(
+          "background-image",
+          "url(" +
+          selectors.item
+            .first()
+            .find(selectors.img)
+            .attr("src") +
+          ")"
+        );
+        var itemLength = selectors.item.length;
+        $(window).scroll(function () {
+          var max, min;
+          var pos = $(this).scrollTop();
+          selectors.item.each(function (i) {
+            min = $(this).offset().top;
+            max = $(this).height() + $(this).offset().top;
+            var that = $(this);
+            if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+              selectors.item.removeClass(selectors.activeClass);
+              selectors.id.css(
+                "background-image",
+                "url(" +
+                selectors.item
+                  .last()
+                  .find(selectors.img)
+                  .attr("src") +
+                ")"
+              );
+              selectors.item.last().addClass(selectors.activeClass);
+            } else if (pos <= max - 10 && pos >= min) {
+              selectors.id.css(
+                "background-image",
+                "url(" +
+                $(this)
+                  .find(selectors.img)
+                  .attr("src") +
+                ")"
+              );
+              selectors.item.removeClass(selectors.activeClass);
+              $(this).addClass(selectors.activeClass);
+            }
+          });
+        });
+      };
+    })(jQuery);
+    $("#shell").timeline();
+
+    let bg = document.getElementById('bg');
+    let moon = document.getElementById('moon');
+    let mountain = document.getElementById('mountain');
+    let road = document.getElementById('road');
+    let text = document.getElementById('text');
+    window.addEventListener('scroll', function () {
+      var value = window.scrollY;
+      bg.style.top = value * 0.5 + 'px';
+      moon.style.left = -value * 0.5 + 'px';
+      mountain.style.top = -value * 0.15 + 'px';
+      road.style.top = value * 0.15 + 'px';
+      text.style.top = value * 1 + 'px';
+    });
+
+    // Paths to your JSON files
+    const chartSpecs = [
+      'https://raw.githubusercontent.com/WyattJiang/data_vis/refs/heads/main/global_disaasters_charts.json', // chart1
+      'https://raw.githubusercontent.com/WyattJiang/data_vis/refs/heads/main/bubble_plots.json',       // chart2
+      'https://raw.githubusercontent.com/WyattJiang/data_vis/refs/heads/main/interactive_charts.json', // chart3
+      'https://raw.githubusercontent.com/WyattJiang/data_vis/refs/heads/main/isotype_charts.json'      // chart4
+    ];
+
+    // Embedding each chart
+    chartSpecs.forEach((spec, index) => {
+      vegaEmbed(`#chart${index + 1}`, spec).catch(console.error);
+    });
+  </script>
+</body>
+</html>
